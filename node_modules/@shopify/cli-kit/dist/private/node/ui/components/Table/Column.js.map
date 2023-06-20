@@ -1,0 +1,1 @@
+{"version":3,"file":"Column.js","sourceRoot":"","sources":["../../../../../../src/private/node/ui/components/Table/Column.ts"],"names":[],"mappings":"","sourcesContent":["export interface Column<T> {\n  name: keyof T\n  width: number\n  color?: string\n}\n"]}

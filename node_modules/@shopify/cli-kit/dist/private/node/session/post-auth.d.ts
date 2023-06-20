@@ -1,0 +1,13 @@
+import { BugError } from '../../../public/node/error.js';
+export declare const getEmptyUrlHTML: () => Promise<string>;
+export declare const getAuthErrorHTML: () => Promise<string>;
+export declare const getMissingCodeHTML: () => Promise<string>;
+export declare const getMissingStateHTML: () => Promise<string>;
+export declare const getSuccessHTML: () => Promise<string>;
+export declare const getStylesheet: () => Promise<string>;
+export declare const getFavicon: () => Promise<string>;
+export declare const EmptyUrlString = "We received the authentication redirect but the URL is empty.";
+export declare const AuthErrorString = "There was an issue while trying to authenticate.";
+export declare const MissingCodeString = "The authentication can't continue because the redirect doesn't include the code.";
+export declare const MissingStateString = "The authentication can't continue because the redirect doesn't include the state.";
+export declare const RedirectPageAssetNotFoundError: () => BugError;

@@ -1,0 +1,1 @@
+{"version":3,"file":"app-installations.d.ts","sourceRoot":"","sources":["../../src/app-installations.ts"],"names":[],"mappings":"AAEA,OAAO,EAAC,kBAAkB,EAAC,MAAM,gBAAgB,CAAC;AAElD,qBAAa,gBAAgB;IAC3B,OAAO,CAAC,cAAc,CAAC;gBAEX,MAAM,EAAE,kBAAkB;IAchC,QAAQ,CAAC,UAAU,EAAE,MAAM,GAAG,OAAO,CAAC,OAAO,CAAC;IAY9C,MAAM,CAAC,UAAU,EAAE,MAAM,GAAG,OAAO,CAAC,IAAI,CAAC;CAUhD"}

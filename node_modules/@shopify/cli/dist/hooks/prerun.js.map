@@ -1,0 +1,1 @@
+{"version":3,"file":"prerun.js","sourceRoot":"","sources":["../../src/hooks/prerun.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,IAAI,IAAI,OAAO,EAAC,MAAM,oCAAoC,CAAA","sourcesContent":["export {hook as default} from '@shopify/cli-kit/node/hooks/prerun'\n"]}

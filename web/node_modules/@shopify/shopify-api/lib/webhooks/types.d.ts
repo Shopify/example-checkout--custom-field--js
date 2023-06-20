@@ -1,0 +1,88 @@
+import { AdapterArgs } from '../../runtime/types';
+import { Session } from '../session/session';
+export declare enum DeliveryMethod {
+    Http = "http",
+    EventBridge = "eventbridge",
+    PubSub = "pubsub"
+}
+export declare type WebhookHandlerFunction = (topic: string, shop_domain: string, body: string, webhookId: string, apiVersion?: string) => Promise<void>;
+interface BaseWebhookHandler {
+    id?: string;
+    includeFields?: string[];
+    metafieldNamespaces?: string[];
+}
+export interface HttpWebhookHandler extends BaseWebhookHandler {
+    deliveryMethod: DeliveryMethod.Http;
+    privateMetafieldNamespaces?: string[];
+    callbackUrl: string;
+    callback: WebhookHandlerFunction;
+}
+export interface EventBridgeWebhookHandler extends BaseWebhookHandler {
+    deliveryMethod: DeliveryMethod.EventBridge;
+    arn: string;
+}
+export interface PubSubWebhookHandler extends BaseWebhookHandler {
+    deliveryMethod: DeliveryMethod.PubSub;
+    pubSubProject: string;
+    pubSubTopic: string;
+}
+export declare type WebhookHandler = HttpWebhookHandler | EventBridgeWebhookHandler | PubSubWebhookHandler;
+export interface WebhookRegistry {
+    [topic: string]: WebhookHandler[];
+}
+export declare enum WebhookOperation {
+    Create = "create",
+    Update = "update",
+    Delete = "delete"
+}
+export interface RegisterParams {
+    session: Session;
+}
+export interface RegisterResult {
+    success: boolean;
+    deliveryMethod: DeliveryMethod;
+    result: unknown;
+}
+export interface RegisterReturn {
+    [topic: string]: RegisterResult[];
+}
+export interface WebhookCheckResponseNode<T = {
+    endpoint: {
+        __typename: 'WebhookHttpEndpoint';
+        callbackUrl: string;
+    } | {
+        __typename: 'WebhookEventBridgeEndpoint';
+        arn: string;
+    } | {
+        __typename: 'WebhookPubSubEndpoint';
+        pubSubProject: string;
+        pubSubTopic: string;
+    };
+}> {
+    node: {
+        id: string;
+        topic: string;
+        includeFields: string[];
+        metafieldNamespaces: string[];
+        privateMetafieldNamespaces: string[];
+    } & T;
+}
+export interface WebhookCheckResponse<T = WebhookCheckResponseNode> {
+    data: {
+        webhookSubscriptions: {
+            edges: T[];
+            pageInfo: {
+                endCursor: string;
+                hasNextPage: boolean;
+            };
+        };
+    };
+}
+export interface AddHandlersParams {
+    [topic: string]: WebhookHandler | WebhookHandler[];
+}
+export interface WebhookProcessParams extends AdapterArgs {
+    rawBody: string;
+}
+export {};
+//# sourceMappingURL=types.d.ts.map

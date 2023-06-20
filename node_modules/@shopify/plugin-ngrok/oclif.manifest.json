@@ -1,0 +1,22 @@
+{
+  "version": "3.45.4",
+  "commands": {
+    "ngrok:auth": {
+      "id": "ngrok:auth",
+      "description": "Saves a token to authenticate against ngrok. Visit https://dashboard.ngrok.com/signup to create an account.",
+      "strict": true,
+      "pluginName": "@shopify/plugin-ngrok",
+      "pluginAlias": "@shopify/plugin-ngrok",
+      "pluginType": "core",
+      "hidden": true,
+      "aliases": [],
+      "flags": {},
+      "args": {
+        "token": {
+          "name": "token",
+          "required": true
+        }
+      }
+    }
+  }
+}

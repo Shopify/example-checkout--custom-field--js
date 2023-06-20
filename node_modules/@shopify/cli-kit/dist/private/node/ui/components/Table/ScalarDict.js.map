@@ -1,0 +1,1 @@
+{"version":3,"file":"ScalarDict.js","sourceRoot":"","sources":["../../../../../../src/private/node/ui/components/Table/ScalarDict.ts"],"names":[],"mappings":"","sourcesContent":["type Scalar = string | number | boolean | null | undefined\n\nexport default interface ScalarDict {\n  [key: string]: Scalar\n}\n"]}

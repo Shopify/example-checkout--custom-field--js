@@ -1,0 +1,1 @@
+{"version":3,"file":"postrun.js","sourceRoot":"","sources":["../../src/hooks/postrun.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,IAAI,IAAI,OAAO,EAAC,MAAM,qCAAqC,CAAA","sourcesContent":["export {hook as default} from '@shopify/cli-kit/node/hooks/postrun'\n"]}
