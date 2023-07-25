@@ -1,2 +1,0 @@
-export { hook as default } from '@shopify/cli-kit/node/hooks/prerun';
-//# sourceMappingURL=prerun.js.map
