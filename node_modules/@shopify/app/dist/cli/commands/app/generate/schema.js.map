@@ -1,1 +1,0 @@
-{"version":3,"file":"schema.js","sourceRoot":"","sources":["../../../../../src/cli/commands/app/generate/schema.ts"],"names":[],"mappings":"AAAA,OAAO,WAAW,MAAM,uBAAuB,CAAA;AAE/C,MAAM,CAAC,OAAO,OAAO,cAAe,SAAQ,WAAW;CAAG","sourcesContent":["import FetchSchema from '../function/schema.js'\n\nexport default class GenerateSchema extends FetchSchema {}\n"]}

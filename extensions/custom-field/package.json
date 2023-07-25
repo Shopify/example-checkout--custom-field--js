@@ -1,0 +1,9 @@
+{
+  "name": "custom-field",
+  "private": true,
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@shopify/ui-extensions": "unstable"
+  }
+}

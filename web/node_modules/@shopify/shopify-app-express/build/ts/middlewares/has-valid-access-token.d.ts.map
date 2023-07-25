@@ -1,1 +1,0 @@
-{"version":3,"file":"has-valid-access-token.d.ts","sourceRoot":"","sources":["../../../src/middlewares/has-valid-access-token.ts"],"names":[],"mappings":"AAAA,OAAO,EAAoB,OAAO,EAAE,OAAO,EAAC,MAAM,sBAAsB,CAAC;AASzE,wBAAsB,mBAAmB,CACvC,GAAG,EAAE,OAAO,EACZ,OAAO,EAAE,OAAO,GACf,OAAO,CAAC,OAAO,CAAC,CAalB"}

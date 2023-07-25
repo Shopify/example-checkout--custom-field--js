@@ -1,8 +1,0 @@
-type = "checkout_ui_extension"
-name = "example-checkout--custom-field--js"
-
-# [START custom-field.ext-config]
-extension_points = [
-  'Checkout::ShippingMethods::RenderAfter'
-]
-# [END custom-field.ext-config]

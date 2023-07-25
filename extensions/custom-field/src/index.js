@@ -1,44 +1,49 @@
 import {
-  extend,
+  extension,
   TextField,
   BlockStack,
   Checkbox,
-} from "@shopify/checkout-ui-extensions";
-
+} from "@shopify/ui-extensions/checkout";
 // [START custom-field.ext-index]
-extend("Checkout::ShippingMethods::RenderAfter", (root, api) => {
+// Set the entry point for the extension
+export default extension("purchase.checkout.shipping-option-list.render-after", (root, api) => {
 // [END custom-field.ext-index]
+  // Keep track of the UI state
   const state = {
     metafields: api.metafields.current,
     showDeliveryInstructions: false,
   };
 
+  // Render the initial extension UI
   renderUI({ root, api, state });
-
+ // [START custom-field.define-metafield]
+  // Keep track if metafields change. If they do, then re-render.
   api.metafields.subscribe((newMetafields) => {
     state.metafields = newMetafields;
     renderUI({ root, api, state });
   });
 });
+// [END custom-field.define-metafield]
 
 function renderUI({ root, api, state }) {
   const { applyMetafieldChange } = api;
 
+  // In case this is a re-render, then remove all previous children
   for (const child of root.children) {
     root.removeChild(child);
   }
 
-  // [START custom-field.define-metafield]
+  // Define the metafield namespace and key
   const metafieldNamespace = "yourAppNamespace";
   const metafieldKey = "deliveryInstructions";
-  // [END custom-field.define-metafield]
 
+  // Get a reference to the metafield
   const deliveryInstructions = state.metafields?.find(
     (field) =>
       field.namespace === metafieldNamespace && field.key === metafieldKey
   );
-
   // [START custom-field.instruction-ui]
+  // Create the Checkbox component
   const app = root.createComponent(BlockStack, {}, [
     root.createComponent(
       Checkbox,
@@ -53,6 +58,7 @@ function renderUI({ root, api, state }) {
     ),
   ]);
 
+  // If the Checkbox component is selected, then create a TextField component
   if (state.showDeliveryInstructions) {
     app.appendChild(
       root.createComponent(TextField, {
@@ -60,6 +66,7 @@ function renderUI({ root, api, state }) {
         label: "Delivery instructions",
         // [START custom-field.store-value]
         onChange: (value) => {
+          // Apply the change to the metafield
           applyMetafieldChange({
             type: "updateMetafield",
             namespace: metafieldNamespace,
@@ -75,5 +82,6 @@ function renderUI({ root, api, state }) {
   }
   // [END custom-field.instruction-ui]
 
+  // Render the extension components
   root.appendChild(app);
 }
