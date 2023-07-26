@@ -15,7 +15,7 @@ handle = "custom-field"
 # https://shopify.dev/docs/api/checkout-ui-extensions/unstable/targets-overview
 # [START custom-field.ext-config]
 [[extensions.targeting]]
-module = "./src/index.js"
+module = "./src/Checkout.js"
   target = "purchase.checkout.shipping-option-list.render-after"
 # [END custom-field.ext-config]
 
