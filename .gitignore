@@ -9,6 +9,11 @@ node_modules
 /prisma/dev.sqlite-journal
 database.sqlite
 
+/extensions/**/node_modules
+/extensions/**/dist
+
 .env
 package-lock.json
 yarn.lock
+
+.DS_Store
