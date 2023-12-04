@@ -2,8 +2,8 @@
   "name": "custom-field",
   "private": true,
   "version": "1.0.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
-    "@shopify/ui-extensions": "unstable"
+    "@shopify/ui-extensions": "2023.10.x"
   }
 }
