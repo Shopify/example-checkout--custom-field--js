@@ -28,10 +28,11 @@ export default extension("purchase.checkout.shipping-option-list.render-after", 
 function renderUI({ root, api, state }) {
   const { applyMetafieldChange, target } = api;
 
-    // Guard against duplicate rendering of `shipping-option-list.render-after` UI extension for one-time purchase and subscription sections. This would cause an overwrite of the metafield value when calling `applyMetafieldsChange` from the duplicated section. Instead of guarding, another approach would be to namespace the metafield for one-time purchase and subscription.
-    if (target.current.groupType !== 'oneTimePurchase') {
-      return null;
-    }
+  // Guard against duplicate rendering of `shipping-option-list.render-after` target for one-time purchase and subscription sections. Calling `applyMetafieldsChange()` on the same namespace-key pair from duplicated extensions would otherwise cause an overwrite of the metafield value.
+  // Instead of guarding, another approach would be to prefix the metafield key when calling `applyMetafieldsChange()`. The `deliveryGroupList`'s `groupType` could be used to such effect.
+  if (target.current.groupType !== 'oneTimePurchase') {
+    return null;
+  }
 
   // In case this is a re-render, then remove all previous children
   for (const child of root.children) {
